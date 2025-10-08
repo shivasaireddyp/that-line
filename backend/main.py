@@ -9,8 +9,6 @@ from dotenv import load_dotenv
 from utils.parse_srt import parse_srt
 from utils.search import SemanticSearch
 
-# Load environment variables from the .env file
-# load_dotenv()
 dotenv_path = Path(__file__).parent / '.env'
 load_dotenv(dotenv_path=dotenv_path)
 
@@ -24,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-# Get the API token from environment variables
+# API token from ev vars
 API_TOKEN = os.getenv("HUGGING_FACE_TOKEN")
 if not API_TOKEN:
     raise ValueError("HUGGING_FACE_TOKEN environment variable not set")
@@ -52,7 +50,6 @@ async def upload_srt(file: UploadFile = File(...)):
         await semantic_search.add_texts(parsed_subs)
         
         sessions[session_id] = semantic_search
-        # os.remove(file_path)
         
         return {
             "status": "success", 
@@ -60,11 +57,9 @@ async def upload_srt(file: UploadFile = File(...)):
             "session_id": session_id
         }
     except Exception as e:
-        # It's good practice to log the actual error on the server
         print(f"An error occurred during upload: {e}")
         raise HTTPException(status_code=500, detail=str(e))
     finally:
-        # This block will ALWAYS run, ensuring the temp file is deleted.
         if os.path.exists(file_path):
             os.remove(file_path)
 
@@ -76,7 +71,10 @@ async def search(request: SearchRequest):
     try:
         semantic_search = sessions[request.session_id]
         results = await semantic_search.search(request.query)
-        return {"status": "success", "results": results}
+
+        sorted_results = sorted(results, key=lambda item: item['score'], reverse=True)
+
+        return {"status": "success", "results": sorted_results}
     except Exception as e:
         print(f"An error occurred during search: {e}")
         raise HTTPException(status_code=500, detail=str(e))

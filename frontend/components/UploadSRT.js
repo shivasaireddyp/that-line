@@ -13,7 +13,7 @@ export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsF
     setIsLoading(true);
     setError("");
     setMessage("");
-    setResults([]); // Clear previous results
+    setResults([]);
     setIsFileUploaded(false);
     setSessionId(null);
     
@@ -21,17 +21,15 @@ export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsF
     formData.append("file", file);
 
     try {
-      // Use the environment variable for the API URL
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/upload_srt`, formData);
       setMessage(res.data.message);
       // Set the session ID in the parent component
       setSessionId(res.data.session_id);
       setIsFileUploaded(true);
     } catch (err) {
-      // Handle errors from the backend
       const errorMessage = err.response?.data?.detail || "Upload failed. Please try again later.";
       setError(errorMessage);
-      setMessage(""); // Clear success message
+      setMessage(""); 
     } finally {
       setIsLoading(false);
     }

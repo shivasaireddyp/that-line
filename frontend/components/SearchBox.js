@@ -5,7 +5,6 @@ export default function SearchBox({ sessionId, setResults, isFileUploaded, setIs
   const [query, setQuery] = useState("");
 
   const handleSearch = async (e) => {
-    // Prevent form submission from reloading the page
     e.preventDefault(); 
     
     if (!query || !isFileUploaded) return;
@@ -19,7 +18,6 @@ export default function SearchBox({ sessionId, setResults, isFileUploaded, setIs
         query: query,
         session_id: sessionId
       };
-      // Use the environment variable for the API URL
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/search`, payload);
       setResults(res.data.results);
     } catch (err) {

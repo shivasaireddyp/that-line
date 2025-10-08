@@ -5,15 +5,10 @@ import SearchBox from "../components/SearchBox";
 import ResultsList from "../components/ResultsList";
 
 export default function Home() {
-  // State to hold the results from the backend
   const [results, setResults] = useState([]);
-  // State for the unique session ID from the backend
   const [sessionId, setSessionId] = useState(null);
-  // State to know if a file has been successfully uploaded
   const [isFileUploaded, setIsFileUploaded] = useState(false);
-  // Shared loading state for both upload and search
   const [isLoading, setIsLoading] = useState(false);
-  // Shared error message state
   const [error, setError] = useState("");
 
   return (
@@ -26,8 +21,9 @@ export default function Home() {
           setError={setError}
           setSessionId={setSessionId}
           setIsFileUploaded={setIsFileUploaded}
-          setResults={setResults} // Pass setResults to clear old results on new upload
+          setResults={setResults}
         />
+        {isLoading && <p className="text-center text-blue-500 mt-4">Uploading your file...Please wait!</p>}
         
         <SearchBox
           sessionId={sessionId}
@@ -37,11 +33,8 @@ export default function Home() {
           setError={setError}
         />
         
-        {/* Display loading indicator or error message */}
-        {isLoading && <p className="text-center text-blue-500 mt-4">Loading...Please wait!</p>}
         {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
-        {/* Only show results container if there are results */}
         {results.length > 0 && <ResultsList results={results} />}
       </div>
     </div>
