@@ -1,20 +1,18 @@
-# ThatLine 🎬
+# That Line
 
-Ever remember a line from a movie but can't place it? Stop endlessly searching. **ThatLine** is a simple, AI-powered tool that finds the exact dialogue you're looking for from any subtitle file.
+Ever remember a line from a movie but can't place it? Stop endlessly searching. **That Line** is a simple, AI-powered tool that finds the exact dialogue you're looking for from any subtitle file.
 
 
 
 ## About The Project
 
-⋅⋅⋅⋅* Ever know the movie and remember a specific line, but can't find the exact scene? Scrubbing through a two-hour film to find one moment is a frustrating experience.
+* **Find any scene, instantly.** Ever know the movie and remember a specific line, but can't find the exact moment? ThatLine solves the frustrating experience of scrubbing through a film to find one specific clip.
 
-⋅⋅⋅⋅* ThatLine is designed to solve this exact problem. By uploading the movie's subtitle file (in .srt format), you can instantly search for any dialogue. But it's more than just a keyword search.
+* **AI-Powered Semantic Search.** Go beyond simple keyword matching. Powered by AI, the app understands the *meaning* and *context* behind your query. This means you can find a scene even if you only remember the gist of the dialogue, not the exact words.
 
-⋅⋅⋅⋅* Powered by AI, ThatLine uses semantic search to understand the meaning and context of your query. This means you can find the scene even if you only remember the gist of the dialogue, not the exact words.
+* **Get Timestamps.** Just upload a standard `.srt` subtitle file and type what you remember. You'll get instant results that include the exact dialogue and the corresponding timestamps.
 
-⋅⋅⋅⋅* For movie fans, it's the fastest way to relive a favorite moment. For video editors and content creators, it's an essential tool for quickly locating specific clips, saving hours of manual searching.
-
-Just upload a standard `.srt` subtitle file, type what you remember, and get instant results with timestamps.
+* **Perfect for Creators and Fans.** It's an essential tool for **video editors** trying to quickly locate clips and a fun utility for **movie fans** wanting to relive a favorite moment or settle a debate.
 
 ### Built With
 
@@ -27,65 +25,6 @@ This project was brought to life with some amazing modern technologies:
 * **Search Index:** [Faiss](https://faiss.ai/) by Meta AI
 * **Deployment:** [Vercel](https://vercel.com/) & [Render](https://render.com/)
 
-## Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-* **npm** (Node.js package manager)
-* **Python** (3.8+) and **pip**
-* A **Hugging Face API Token** (for the backend)
-
-### Installation
-
-1.  **Clone the repo:**
-    ```sh
-    git clone [https://github.com/your_username/that-line.git](https://github.com/your_username/that-line.git)
-    cd that-line
-    ```
-
-2.  **Setup the Backend:**
-    * Navigate to the backend folder:
-        ```sh
-        cd backend
-        ```
-    * Create and activate a virtual environment:
-        ```sh
-        python -m venv .venv
-        source .venv/bin/activate  # On Windows: .\.venv\Scripts\Activate
-        ```
-    * Install Python packages:
-        ```sh
-        pip install -r requirements.txt
-        ```
-    * Create a `.env` file and add your Hugging Face token:
-        ```
-        HUGGING_FACE_TOKEN="hf_YourTokenGoesHere"
-        ```
-    * Run the backend server (from the root `that-line` folder):
-        ```sh
-        uvicorn main:app --reload --app-dir backend
-        ```
-
-3.  **Setup the Frontend:**
-    * Open a new terminal and navigate to the frontend folder:
-        ```sh
-        cd frontend
-        ```
-    * Install NPM packages:
-        ```sh
-        npm install
-        ```
-    * Create a `.env.local` file and add the local backend URL:
-        ```
-        NEXT_PUBLIC_API_URL=http://localhost:8000
-        ```
-    * Run the frontend dev server:
-        ```sh
-        npm run dev
-        ```
-
 ## Usage
 
 Using the live application is simple:
@@ -96,9 +35,3 @@ Using the live application is simple:
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Shivasaireddy P - [GitHub Profile](https://github.com/shivasaireddyp)
-
-Project Link: [https://github.com/shivasaireddyp/that-line](https://github.com/shivasaireddyp/that-line)
