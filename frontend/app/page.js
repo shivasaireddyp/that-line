@@ -1,48 +1,3 @@
-// 'use client';
-// import { useState } from "react";
-// import UploadSRT from "../components/UploadSRT";
-// import SearchBox from "../components/SearchBox";
-// import ResultsList from "../components/ResultsList";
-
-// export default function Home() {
-//   const [results, setResults] = useState([]);
-//   const [sessionId, setSessionId] = useState(null);
-//   const [isFileUploaded, setIsFileUploaded] = useState(false);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState("");
-
-//   return (
-//     <div className="min-h-screen flex flex-col items-center mt-10 px-6">
-//       <div className="w-full max-w-2xl mx-auto">
-//         <p className="text-6xl font-bold text-center mb-6 text-gray-800">"That" Line</p>
-//         <p className=" m-2 text-center">You can find "that" line from "that" movie here.</p>
-//         <UploadSRT
-//           setIsLoading={setIsLoading}
-//           setError={setError}
-//           setSessionId={setSessionId}
-//           setIsFileUploaded={setIsFileUploaded}
-//           setResults={setResults}
-//         />
-//         {isLoading && <p className="text-center text-blue-500 mt-4">Uploading your file...Please wait!</p>}
-        
-//         <SearchBox
-//           sessionId={sessionId}
-//           setResults={setResults}
-//           isFileUploaded={isFileUploaded}
-//           setIsLoading={setIsLoading}
-//           setError={setError}
-//         />
-        
-//         {error && <p className="text-center text-red-500 mt-4">{error}</p>}
-
-//         {results.length > 0 && <ResultsList results={results} />}
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
 'use client';
 import { useState } from "react";
 import UploadSRT from "../components/UploadSRT";
@@ -63,10 +18,10 @@ export default function Home() {
         {/* === Hero Section === */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-            <span className="bg-gradient-to-r from-sky-500 to-emerald-500 bg-clip-text text-transparent">ThatLine</span> 🎬
+            <span className=" ">That Line</span> <image src="./favicon.ico" alt="Logo" className="inline w-12 h-12 md:w-16 md:h-16" />
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
-            Ever remember a line from a movie but can't place it? Stop searching. Upload a subtitle file and find the exact dialogue in seconds.
+            Ever remember a line from a movie but can't place it? Stop searching. Simply upload a subtitle file and search naturally — find the exact dialogue and timestamp in seconds.
           </p>
         </div>
 
@@ -90,7 +45,7 @@ export default function Home() {
         
         {/* === Results / Status Display Section === */}
         <div className="max-w-2xl mx-auto mt-6">
-          {isLoading && <p className="text-center text-blue-500">Searching...</p>}
+          {isLoading && <p className="text-center text-blue-500">Uploading and Searching...</p>}
           {error && <p className="text-center text-red-500 font-medium">{error}</p>}
           {results.length > 0 && <ResultsList results={results} />}
         </div>
@@ -113,14 +68,14 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg border">
               <div className="text-4xl mb-3">✨</div>
               <h3 className="text-lg font-semibold">3. Get Instant Results</h3>
-              <p className="text-gray-500 mt-1">Our AI finds the most relevant lines with their timestamps instantly.</p>
+              <p className="text-gray-500 mt-1">Model finds the most relevant lines with their timestamps instantly.</p>
             </div>
           </div>
         </div>
 
         {/* === Who It's For Section === */}
         <div className="mt-20 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 text-center">Perfect For...</h2>
+          <h2 className="text-3xl font-bold text-gray-800 text-center">Who Can Benefit</h2>
           <ul className="mt-8 space-y-4 text-left">
             <li className="flex items-start bg-white p-4 rounded-lg border">
               <span className="text-2xl mr-4">🎬</span>
@@ -148,8 +103,8 @@ export default function Home() {
       </main>
 
       {/* === Footer === */}
-      <footer className="text-center py-6 border-t bg-white">
-        <p className="text-sm text-gray-500">A project by Shivasaireddy P</p>
+      <footer className="py-6 border-t bg-white">
+        <p className="text-sm text-gray-500">shivasaireddyp</p>
       </footer>
     </div>
   );
