@@ -6,13 +6,13 @@ Ever remember a line from a movie but can't place it? Stop endlessly searching. 
 
 ## About The Project
 
-Ever know the movie and remember a specific line, but can't find the exact scene? Scrubbing through a two-hour film to find one moment is a frustrating experience.
+*Ever know the movie and remember a specific line, but can't find the exact scene? Scrubbing through a two-hour film to find one moment is a frustrating experience.
 
-ThatLine is designed to solve this exact problem. By uploading the movie's subtitle file (in .srt format), you can instantly search for any dialogue. But it's more than just a keyword search.
+*ThatLine is designed to solve this exact problem. By uploading the movie's subtitle file (in .srt format), you can instantly search for any dialogue. But it's more than just a keyword search.
 
-Powered by AI, ThatLine uses semantic search to understand the meaning and context of your query. This means you can find the scene even if you only remember the gist of the dialogue, not the exact words.
+*Powered by AI, ThatLine uses semantic search to understand the meaning and context of your query. This means you can find the scene even if you only remember the gist of the dialogue, not the exact words.
 
-For movie fans, it's the fastest way to relive a favorite moment. For video editors and content creators, it's an essential tool for quickly locating specific clips, saving hours of manual searching.
+*For movie fans, it's the fastest way to relive a favorite moment. For video editors and content creators, it's an essential tool for quickly locating specific clips, saving hours of manual searching.
 
 Just upload a standard `.srt` subtitle file, type what you remember, and get instant results with timestamps.
 
