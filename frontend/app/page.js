@@ -3,6 +3,7 @@ import { useState } from "react";
 import UploadSRT from "../components/UploadSRT";
 import SearchBox from "../components/SearchBox";
 import ResultsList from "../components/ResultsList";
+import Link from 'next/link';
 
 export default function Home() {
   const [results, setResults] = useState([]);
@@ -15,17 +16,21 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <main className="container mx-auto px-4 py-8 md:py-12">
         
-        {/* === Hero Section === */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-            <span className=" ">That Line</span> <image src="./favicon.ico" alt="Logo" className="inline w-12 h-12 md:w-16 md:h-16" />
+            <span className=" ">That Line</span>
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
             Ever remember a line from a movie but can't place it? Stop searching. Simply upload a subtitle file and search naturally — find the exact dialogue and timestamp in seconds.
           </p>
+
+          <div className="mt-6">
+            <Link href="/library" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-gray-100 border transition">
+              Go to Library Search Mode
+            </Link>
+          </div>
         </div>
 
-        {/* === Main Application Section === */}
         <div className="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200">
           <UploadSRT
             setIsLoading={setIsLoading}
@@ -43,14 +48,12 @@ export default function Home() {
           />
         </div>
         
-        {/* === Results / Status Display Section === */}
         <div className="max-w-2xl mx-auto mt-6">
           {isLoading && <p className="text-center text-blue-500">Uploading and Searching...</p>}
           {error && <p className="text-center text-red-500 font-medium">{error}</p>}
           {results.length > 0 && <ResultsList results={results} />}
         </div>
         
-        {/* === How It Works Section === */}
         <div className="mt-20 text-center">
           <h2 className="text-3xl font-bold text-gray-800">How It Works</h2>
           <p className="mt-2 text-gray-500">Simple steps to find any line.</p>
@@ -73,7 +76,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* === Who It's For Section === */}
         <div className="mt-20 max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-800 text-center">Who Can Benefit</h2>
           <ul className="mt-8 space-y-4 text-left">
@@ -102,7 +104,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* === Footer === */}
       <footer className="py-6 border-t bg-white">
         <p className="text-sm text-gray-500">shivasaireddyp</p>
       </footer>

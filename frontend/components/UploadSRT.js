@@ -8,8 +8,6 @@ export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsF
   const handleUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
-    // Reset state for new upload
     setIsLoading(true);
     setError("");
     setMessage("");
@@ -23,7 +21,6 @@ export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsF
     try {
       const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/upload_srt`, formData);
       setMessage(res.data.message);
-      // Set the session ID in the parent component
       setSessionId(res.data.session_id);
       setIsFileUploaded(true);
     } catch (err) {
