@@ -1,6 +1,6 @@
-
-import axios from "axios";
 import { useState } from "react";
+import { Upload } from "lucide-react";
+import axios from "axios";
 
 export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsFileUploaded, setResults }) {
   const [message, setMessage] = useState("");
@@ -33,18 +33,26 @@ export default function UploadSRT({ setIsLoading, setError, setSessionId, setIsF
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-      <label htmlFor="file-upload" className="block text-sm font-medium text-gray-700 mb-2">
-        1. Upload your .SRT file here:
+    <div>
+      <label htmlFor="file-upload" className="block cursor-pointer">
+        <div className="border-2 border-dashed border-slate-700 rounded-xl p-8 text-center hover:border-violet-500 transition-all duration-300 bg-slate-900/50">
+          <Upload className="w-12 h-12 mx-auto mb-4 text-slate-400" />
+          <p className="text-slate-300 mb-2 font-medium">Drop your SRT file here</p>
+          <p className="text-sm text-slate-500">or click to browse</p>
+        </div>
       </label>
-      <input 
+      <input
         id="file-upload"
-        type="file" 
-        accept=".srt" 
-        onChange={handleUpload} 
-        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        type="file"
+        accept=".srt"
+        onChange={handleUpload}
+        className="hidden"
       />
-      {message && <p className="text-green-600 mt-2">{message}</p>}
+      {message && (
+        <div className="mt-4 px-4 py-3 bg-violet-500/10 border border-violet-500/20 rounded-lg">
+          <p className="text-violet-400 text-sm font-medium">{message}</p>
+        </div>
+      )}
     </div>
   );
 }
