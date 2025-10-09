@@ -31,7 +31,7 @@ export default function Home() {
         
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
-          <div className="lg:sticky lg:top-8 space-y-8">
+          <div className="lg:sticky lg:top-8 space-y-8 mx-auto">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 border border-violet-500/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-violet-400" />
