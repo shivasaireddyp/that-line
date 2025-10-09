@@ -104,13 +104,24 @@ async def search(request: SearchRequest):
 
 # for librabry search
 
+# @app.get("/library/movies")
+# async def get_library_movies():
+#     """Returns a list of available movies from the pre-processed library."""
+#     srt_files_path = os.path.join(Path(__file__).parent.parent, 'srt_files', '*.srt')
+#     srt_files = glob.glob(srt_files_path)
+#     movie_ids = sorted([os.path.basename(f).replace('.srt', '') for f in srt_files])
+#     return {"movies": movie_ids}
+
 @app.get("/library/movies")
 async def get_library_movies():
-    """Returns a list of available movies from the pre-processed library."""
-    srt_files_path = os.path.join(Path(__file__).parent.parent, 'srt_files', '*.srt')
-    srt_files = glob.glob(srt_files_path)
-    movie_ids = sorted([os.path.basename(f).replace('.srt', '') for f in srt_files])
-    return {"movies": movie_ids}
+    """Returns a list of available movies by fetching namespaces from Pinecone."""
+    try:
+        stats = pinecone_index.describe_index_stats()
+        movie_ids = sorted(list(stats['namespaces'].keys()))
+        return {"movies": movie_ids}
+    except Exception as e:
+        print(f"Could not fetch movie list from Pinecone: {e}")
+        raise HTTPException(status_code=500, detail="Could not fetch movie list from database.")
 
 
 @app.post("/library/search")
