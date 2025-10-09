@@ -32,11 +32,6 @@ export default function Footer() {
                   Library
                 </Link>
               </li>
-              <li>
-                <Link href="/about" className="text-slate-400 hover:text-emerald-400 transition-colors text-sm">
-                  About
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -76,10 +71,10 @@ export default function Footer() {
             © {new Date().getFullYear()} That Line. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-slate-500 hover:text-emerald-400 transition-colors text-sm">
+            <Link href="/" className="text-slate-500 hover:text-emerald-400 transition-colors text-sm">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-slate-500 hover:text-emerald-400 transition-colors text-sm">
+            <Link href="/" className="text-slate-500 hover:text-emerald-400 transition-colors text-sm">
               Terms of Service
             </Link>
           </div>
