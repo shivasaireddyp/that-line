@@ -15,7 +15,7 @@ out/
 .DS_Store
 Thumbs.db
 
-process_and_upload.py
+# process_and_upload.py
 remove_namespace.py
 
 srt_files/

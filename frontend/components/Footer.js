@@ -68,7 +68,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} That Line. All rights reserved.
+            © {new Date().getFullYear()} That Line. All rights reserved. @shivasaireddyp
           </p>
           <div className="flex gap-6">
             <Link href="/" className="text-slate-500 hover:text-emerald-400 transition-colors text-sm">

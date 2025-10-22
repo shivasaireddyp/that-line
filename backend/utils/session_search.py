@@ -44,7 +44,7 @@ class SessionSearch:
         faiss.normalize_L2(embeddings)
         self.index.add(embeddings)
 
-    def search(self, query: str, top_k=5, similarity_threshold=0.5):
+    def search(self, query: str, top_k=10, similarity_threshold=0.25):
         if not self.index or self.index.ntotal == 0:
             return []
             

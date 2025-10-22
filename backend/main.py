@@ -102,15 +102,6 @@ async def search(request: SearchRequest):
         print(f"An error occurred during search: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# for librabry search
-
-# @app.get("/library/movies")
-# async def get_library_movies():
-#     """Returns a list of available movies from the pre-processed library."""
-#     srt_files_path = os.path.join(Path(__file__).parent.parent, 'srt_files', '*.srt')
-#     srt_files = glob.glob(srt_files_path)
-#     movie_ids = sorted([os.path.basename(f).replace('.srt', '') for f in srt_files])
-#     return {"movies": movie_ids}
 
 @app.get("/library/movies")
 async def get_library_movies():
